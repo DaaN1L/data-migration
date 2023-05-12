@@ -1,0 +1,1 @@
+from .create_table_query import CREATE_TABLE_QUERY

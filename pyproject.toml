@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "data-migration"
+version = "0.1.0"
+description = ""
+authors = ["DaaN1L <dorofeev-danila@mail.ru>"]
+readme = "README.md"
+packages = [{include = "data_migration"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+notebook = "^6.5.4"
+jupyter-contrib-nbextensions = "^0.7.0"
+clickhouse-connect = "^0.5.23"
+pydantic = {extras = ["dotenv"], version = "^1.10.7"}
+psycopg2-binary = "^2.9.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
