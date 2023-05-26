@@ -60,13 +60,18 @@ class DriverPostgresql(DriverBase):
             data = curs.fetchall()
         return data
 
-    def insert(self):
+    def insert(self,
+               table: str,
+               schema: str,
+               columns_description: list[ColumnsInfo],
+               values: list[tuple]):
         raise NotImplementedError
 
-    def create_table(self):
+    def create_table(self,
+                     table: str,
+                     schema: str,
+                     columns_description: list[ColumnsInfo]):
         raise NotImplementedError
 
     def __del__(self):
         self.conn.close()
-
-
