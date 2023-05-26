@@ -23,9 +23,9 @@ class DriverBase(ABC):
                table: str,
                schema: str,
                columns: list[str],
-               increment_key: str,
-               from_: Any,
-               to_: Any) -> list[tuple]:
+               increment_key: list[str],
+               from_: list[Any],
+               to_: Any) -> list[Any]:
         ...
 
     @abstractmethod
