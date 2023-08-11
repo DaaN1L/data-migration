@@ -37,6 +37,7 @@ class DataMigrator:
             target_db: DriverBase,
             target_schema: str,
             target_table: str,
+            target_pkey: str,
             increment_key: str | list[str],
             load_from: Any,
             load_to: Any,
@@ -56,19 +57,20 @@ class DataMigrator:
         self.target_db.create_table(
             table=target_table,
             schema=target_schema,
-            columns_description=mapped_column_description
-        )
-        data = self.source_db.select(
-            table=source_table,
-            schema=source_schema,
-            columns=[c.name for c in columns_description],
-            increment_key=increment_key,
-            from_=load_from,
-            to_=load_to
-        )
-        self.target_db.insert(
-            table=target_table,
-            schema=target_schema,
             columns_description=mapped_column_description,
-            values=data
+            pkey=target_pkey,
         )
+        # data = self.source_db.select(
+        #     table=source_table,
+        #     schema=source_schema,
+        #     columns=[c.name for c in columns_description],
+        #     increment_key=increment_key,
+        #     from_=load_from,
+        #     to_=load_to
+        # )
+        # self.target_db.insert(
+        #     table=target_table,
+        #     schema=target_schema,
+        #     columns_description=mapped_column_description,
+        #     values=data
+        # )

@@ -42,8 +42,6 @@ class DriverPostgresql(DriverBase):
             if column[0] not in exclude and (include is None or column[0] in include):
                 column_info = ColumnsInfo(*column)
                 column_info.is_nullable = True if column_info.is_nullable == "YES" else False
-                # TODO Check if it will work
-                # column_info.default = None if column_info.default is None else column_info.default
                 columns_info.append(column_info)
         return columns_info
 
@@ -70,6 +68,7 @@ class DriverPostgresql(DriverBase):
     def create_table(self,
                      table: str,
                      schema: str,
+                     pkey: str,
                      columns_description: list[ColumnsInfo]):
         raise NotImplementedError
 

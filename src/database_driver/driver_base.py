@@ -32,6 +32,7 @@ class DriverBase(ABC):
     def create_table(self,
                      table: str,
                      schema: str,
+                     pkey: str,
                      columns_description: list[ColumnsInfo]):
         ...
 

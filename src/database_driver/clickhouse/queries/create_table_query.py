@@ -4,7 +4,6 @@ CREATE_TABLE_QUERY = """
     (
     {columns}
     )
-    ENGINE = ReplacingMergeTree
+    ENGINE = MergeTree
     ORDER BY index
-    
 """
